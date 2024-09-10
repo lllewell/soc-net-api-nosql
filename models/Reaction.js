@@ -28,4 +28,11 @@ const reactionSchema = new Schema(
   }
 );
 
+reactionSchema
+.virtual('timeStamp')
+// Getter
+.get(function () {
+  return this.createdAt;
+});
+
 module.exports = reactionSchema;
