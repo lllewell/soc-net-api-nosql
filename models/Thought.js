@@ -4,22 +4,19 @@ const reactionSchema = require('./Reaction');
 // Schema to create Post model
 const thoughtSchema = new Schema(
   {
-    published: {
-      type: Boolean,
-      default: false,
+    thoughtText: {
+      type: String,
+      required: true,
+      maxLength: 280,
+      minLength: 1,
     },
     createdAt: {
       type: Date,
       default: Date.now,
     },
-    advertiserFriendly: {
-      type: Boolean,
-      default: true,
-    },
-    description: {
+    username: {
       type: String,
-      minLength: 8,
-      maxLength: 500,
+      required: true,
     },
     reactions: [reactionSchema],
   },
@@ -33,10 +30,10 @@ const thoughtSchema = new Schema(
 
 // Create a virtual property `responses` that gets the amount of response per video
 thoughtSchema
-  .virtual('getResponses')
+  .virtual('reactionCount')
   // Getter
   .get(function () {
-    return this.responses.length;
+    return this.reactions.length;
   });
 
 // Initialize our Video model
