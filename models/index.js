@@ -1,5 +1,5 @@
 const User = require('./User');
-const Response = require('./responseSchema');
-const Video = require('./Video');
+const Reaction = require('./reactionSchema');
+const Thought = require('./Thought');
 
-module.exports = { User, Video, Response };
+module.exports = { User, Thought, Reaction };

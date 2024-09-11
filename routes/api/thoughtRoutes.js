@@ -8,7 +8,7 @@ const {
   deleteVideo,
   addVideoResponse,
   removeVideoResponse,
-} = require('../../controllers/videoController');
+} = require('../../controllers/thoughtController');
 
 // /api/videos
 router.route('/').get(getVideos).post(createVideo);
