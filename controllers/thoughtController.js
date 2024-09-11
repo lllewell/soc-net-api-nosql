@@ -22,9 +22,9 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  async getSingleVideo(req, res) {
+  async getSingleThought(req, res) {
     try {
-      const video = await Thought.findOne({ _id: req.params.videoId })
+      const video = await Thought.findOne({ _id: req.params.thoughtId })
 
       if (!video) {
         return res.status(404).json({ message: 'No video with that ID' });
@@ -101,37 +101,37 @@ module.exports = {
     }
   },
   // Add a video response
-  async addVideoResponse(req, res) {
+  async addVideoReaction(req, res) {
     try {
-      const video = await Video.findOneAndUpdate(
-        { _id: req.params.videoId },
+      const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
         { $addToSet: { responses: req.body } },
         { runValidators: true, new: true }
       );
 
-      if (!video) {
+      if (!thought) {
         return res.status(404).json({ message: 'No video with this id!' });
       }
 
-      res.json(video);
+      res.json(thought);
     } catch (err) {
       res.status(500).json(err);
     }
   },
   // Remove video response
-  async removeVideoResponse(req, res) {
+  async removeVideoReaction(req, res) {
     try {
-      const video = await Video.findOneAndUpdate(
-        { _id: req.params.videoId },
-        { $pull: { reactions: { responseId: req.params.responseId } } },
+      const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       )
 
-      if (!video) {
-        return res.status(404).json({ message: 'No video with this id!' });
+      if (!thought) {
+        return res.status(404).json({ message: 'No reaction with this id!' });
       }
 
-      res.json(video);
+      res.json(thought);
     } catch (err) {
       res.status(500).json(err);
     }

@@ -1,26 +1,26 @@
 const router = require('express').Router();
 const {
-  getVideos,
-  getSingleVideo,
+  getThoughts,
+  getSingleThought,
   getVideoResponses,
-  createVideo,
-  updateVideo,
-  deleteVideo,
+  createThought,
+  updateThought,
+  deleteThought,
   addVideoResponse,
   removeVideoResponse,
 } = require('../../controllers/thoughtController');
 
-// /api/videos
-router.route('/').get(getVideos).post(createVideo);
+// /api/thoughts
+router.route('/').get(getThoughts).post(createThought);
 
-// /api/videos/:videoId
+// /api/thoughts/:thoughtId
 router
-  .route('/:videoId')
-  .get(getSingleVideo)
-  .put(updateVideo)
-  .delete(deleteVideo);
+  .route('/:thoughtId')
+  .get(getSingleThought)
+  .put(updateThought)
+  .delete(deleteThought);
 
-// /api/videos/:videoId/responses
+// /api/thoughts/:thoughtId/reactions
 router.route('/:videoId/responses')
   .get(getVideoResponses)  
   .post(addVideoResponse);
