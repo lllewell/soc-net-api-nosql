@@ -2,12 +2,12 @@ const router = require('express').Router();
 const {
   getThoughts,
   getSingleThought,
-  getVideoResponses,
+  getThoughtReaction,
   createThought,
   updateThought,
   deleteThought,
-  addVideoResponse,
-  removeVideoResponse,
+  addThoughtReaction,
+  removeThoughtReaction,
 } = require('../../controllers/thoughtController');
 
 // /api/thoughts
@@ -21,11 +21,12 @@ router
   .delete(deleteThought);
 
 // /api/thoughts/:thoughtId/reactions
-router.route('/:videoId/responses')
-  .get(getVideoResponses)  
-  .post(addVideoResponse);
+router.route('/:thoughtId/reactions')
+  .get(getThoughtReaction)  
+  .post(addThoughtReaction)
 
-// /api/videos/:videoId/responses/:responseId
-router.route('/:videoId/responses/:responseId').delete(removeVideoResponse);
+
+// /api/thoughts/:thoughtId/reactions/:reactionId
+router.route('/:videoId/responses/:responseId').delete(removeThoughtReaction);
 
 module.exports = router;

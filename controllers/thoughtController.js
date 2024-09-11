@@ -9,15 +9,15 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  async getVideoResponses(req, res) {
+  async getThoughtReaction(req, res) {
     try {
-      const video = await Thought.findOne({ _id: req.params.videoId })
+      const thought = await Thought.findOne({ _id: req.params.thoughtId })
 
-      if (!video) {
-        return res.status(404).json({ message: 'No video with that ID' });
+      if (!thought) {
+        return res.status(404).json({ message: 'No thought with that ID' });
       }
 
-      res.json(video.responses);
+      res.json(thought.reactions);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -101,7 +101,7 @@ module.exports = {
     }
   },
   // Add a video response
-  async addVideoReaction(req, res) {
+  async addThoughtReaction(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
@@ -119,7 +119,7 @@ module.exports = {
     }
   },
   // Remove video response
-  async removeVideoReaction(req, res) {
+  async removeThoughtReaction(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
