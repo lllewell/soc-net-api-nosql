@@ -13,11 +13,10 @@ The user needs to install the `mongoose` and `express`dependencies to utilize th
 
 Using Insomnia the user will be able to utilize the different route requests to obtain/provide information from/to the social network API.
 
-![note-taker-landing](images/Note-Taker-Landing-Page.png)
-![note-taker-notes](images/Note-Taker-Notes-Page.png)
+![insomnia-screenshot](images/soc-network-insomnia.png)
 
 ## Links
-[render-deployment](https://note-taker-app-t1di.onrender.com)
+[walkthrough-video]()
 
-[github-repo](https://github.com/lllewell/note-taker-app)
+[github-repo](https://github.com/lllewell/soc-net-api-nosql)
 
