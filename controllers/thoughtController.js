@@ -77,10 +77,10 @@ module.exports = {
   },
   async deleteThought(req, res) {
     try {
-      const thought = await Thought.findOneAndRemove({ _id: req.params.userId });
+      const thought = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
 
       if (!thought) {
-        return res.status(404).json({ message: 'No video with this id!' });
+        return res.status(404).json({ message: 'No thought with this id!' });
       }
 
       const user = await User.findOneAndUpdate(
@@ -92,10 +92,10 @@ module.exports = {
       if (!user) {
         return res
           .status(404)
-          .json({ message: 'Attempted to delete thought but no user with this id!' });
+          .json({ message: 'Deleted thought but no user with this id!' });
       }
 
-      res.json({ message: 'Thought successfully deleted!' });
+      res.json({ message: 'Thought successfully deleted from user!' });
     } catch (err) {
       res.status(500).json(err);
     }
