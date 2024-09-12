@@ -24,13 +24,13 @@ module.exports = {
   },
   async getSingleThought(req, res) {
     try {
-      const video = await Thought.findOne({ _id: req.params.thoughtId })
+      const thought = await Thought.findOne({ _id: req.params.thoughtId })
 
-      if (!video) {
+      if (!thought) {
         return res.status(404).json({ message: 'No thought with that ID' });
       }
 
-      res.json(video);
+      res.json(thought);
     } catch (err) {
       res.status(500).json(err);
     }

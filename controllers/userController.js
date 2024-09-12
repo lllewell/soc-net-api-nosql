@@ -71,7 +71,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user found with that ID'});
       }
 
-      await User.updateOne({ _id: { $in: user.friends }});
+      await User.updateOne({ _id: { $push: user.friends }});
       res.json({ message: 'Friend added to users friend list'});
     } catch (err) {
       res.status(500).json(err);
@@ -85,7 +85,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user found with that ID'});
       }
 
-      await User.deleteOne({ _id: { $in: user.friends }});
+      await User.deleteOne({ _id: { $pop: user.friends }});
       res.json({ message: 'Friend deleted from users friend list'});
     } catch (err) {
       res.status(500).json(err);

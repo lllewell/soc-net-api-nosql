@@ -43,7 +43,7 @@ userSchema
   .virtual('friendCount')
   // Getter
   .get(function () {
-    return `${this.first} ${this.last}`;
+    return this.friends.length;
   })
 
 // Initialize our User model
