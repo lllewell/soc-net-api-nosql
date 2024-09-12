@@ -92,7 +92,7 @@ const getRandomThoughts = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       thoughtText: getRandomArrItem(descriptionsBodies),
-      username: getRandomName(),
+      username: getRandomName(names),
       reactions: [...getThoughtReactions(3)],
     });
   }
