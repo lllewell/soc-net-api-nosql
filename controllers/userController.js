@@ -37,7 +37,7 @@ module.exports = {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $set: req.body },
-        // { runValidators: true, new: true } Do we need this?
+        { runValidators: true, new: true }
       )
       .select('-__v');
       
