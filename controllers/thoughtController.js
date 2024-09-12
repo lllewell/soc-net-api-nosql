@@ -27,7 +27,7 @@ module.exports = {
       const video = await Thought.findOne({ _id: req.params.thoughtId })
 
       if (!video) {
-        return res.status(404).json({ message: 'No video with that ID' });
+        return res.status(404).json({ message: 'No thought with that ID' });
       }
 
       res.json(video);

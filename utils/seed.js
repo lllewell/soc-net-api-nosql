@@ -36,6 +36,11 @@ connection.once('open', async () => {
       username,
       email: getRandomArrItem(emails),
     });
+
+    thoughts.push({
+      thoughtText,
+      username,
+    })
   }
 
   await User.insertMany(users);
