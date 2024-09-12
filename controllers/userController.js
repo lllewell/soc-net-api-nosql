@@ -65,13 +65,16 @@ module.exports = {
   },
   async addFriendToFriendList (req, res) {
     try {
-      const user = await User.findOneAndUpdate({  _id: req.params.userId });
+      const user = await User.findOne({  _id: req.params.userId });
 
       if (!user) {
         return res.status(404).json({ message: 'No user found with that ID'});
       }
 
-      await User.updateOne({ _id: { $push: user.friends }});
+      await user.updateOne({ $push: { friends: req.params.friendId } });
+      // user.friends.push(req.params.friendId);
+      // await user.save();
+
       res.json({ message: 'Friend added to users friend list'});
     } catch (err) {
       res.status(500).json(err);
@@ -79,13 +82,13 @@ module.exports = {
   },
   async deleteFriendFromFriendList (req, res) {
     try {
-      const user = await User.findOneAndDelete({  _id: req.params.userId });
+      const user = await User.findOne({  _id: req.params.userId });
 
       if (!user) {
         return res.status(404).json({ message: 'No user found with that ID'});
       }
 
-      await User.deleteOne({ _id: { $pop: user.friends }});
+      await user.deleteOne({ $pop: { friends: req.params.friendId } });
       res.json({ message: 'Friend deleted from users friend list'});
     } catch (err) {
       res.status(500).json(err);
