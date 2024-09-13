@@ -16,7 +16,9 @@ Using Insomnia the user will be able to utilize the different route requests to 
 ![insomnia-screenshot](images/soc-network-insomnia.png)
 
 ## Links
-[walkthrough-video](https://drive.google.com/file/d/1uiNiWq_sz6QnBauwG2GwrQhzHx459oXP/view?usp=sharing)
+[walkthrough-video-user](https://drive.google.com/file/d/1uiNiWq_sz6QnBauwG2GwrQhzHx459oXP/view?usp=sharing)
+
+[walkthough-video-thoughts](https://drive.google.com/file/d/1CchJePz0nri7wo_lFHWFCQWNDLhTh7_i/view?usp=drive_link)
 
 [github-repo](https://github.com/lllewell/soc-net-api-nosql)
 
