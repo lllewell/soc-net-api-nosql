@@ -20,5 +20,7 @@ Using Insomnia the user will be able to utilize the different route requests to 
 
 [walkthough-video-thoughts](https://drive.google.com/file/d/1CchJePz0nri7wo_lFHWFCQWNDLhTh7_i/view?usp=drive_link)
 
+[walkthrough-video-friend-reaction](https://drive.google.com/file/d/1i8w4vVgfDQZy7G7YhO_Xa277RvHGMxWu/view?usp=sharing)
+
 [github-repo](https://github.com/lllewell/soc-net-api-nosql)
 
